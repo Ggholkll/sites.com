@@ -361,27 +361,7 @@ function run() {
     $(".flickfeed3").slick(getSliderSettings()) - 1
   );
   $(".flickfeed2").slick("refresh");
-  JSON.parse(window.localStorage.getItem("favVideos")).forEach(
-    (element, index) => {
-      // $(".flickfeed2").slick("slickRemove", slideIndex - 1);
-      console.log(element, "element");
-      if (element.checked) {
-        
-        $(".flickfeed2").slick("unslick");
-        insertToFav(index + 1, 1, element);
-        $(".flickfeed2").slick(
-          "slickAdd",
-          "",
-          $(".flickfeed2").slick(getSliderSettings()) - 1
-        );
-        document.querySelector(`[key=main-${element.id}]`).children[0].remove();
-        $(`[key=main-${element.id}]`).find(".plus").remove();
-        $(`[key=main-${element.id}]`).append(
-          '<img class="chckedd" style="height:20px;filter:invert(100);top: 3px;position: absolute;right: 3px;" src="src/checked.png"/>'
-        );
-      }
-    }
-  );
+  
   favVideos = JSON.parse(window.localStorage.getItem("favVideos")); 
   console.log(favVideos, "favVideojs");
 }
